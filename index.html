@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>For Vanya</title>
     <meta name="description" content="A birthday surprise made for Vanya." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -17,9 +23,7 @@
           <div class="copy-block">
             <p class="eyebrow">For You</p>
             <h1>I have a little surprise for you.</h1>
-            <p class="lead">
-
-            </p>
+            <p class="lead">Something small, made quietly, just for you.</p>
             <button class="primary-button" data-next="math">Start the journey</button>
           </div>
 
@@ -57,7 +61,7 @@
           </div>
 
           <div class="countdown-card">
-            <span>Next birthday countdown</span>
+            <span>countdown</span>
             <div class="countdown-grid" aria-label="Live birthday countdown">
               <strong><b data-count-days>--</b><small>days</small></strong>
               <strong><b data-count-hours>--</b><small>hours</small></strong>
@@ -88,6 +92,54 @@
               protect, and lucky to celebrate.
             </p>
           </article>
+
+          <button class="primary-button" data-next="research">Next</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="memories">
+        <div class="screen-inner">
+          <div class="section-heading center">
+            <p class="eyebrow">Little Moments</p>
+            <h2>A few frames of us.</h2>
+          </div>
+
+          <div class="collage">
+            <figure class="polaroid tilt-a">
+              <div class="polaroid-frame">
+                <img src="/images/IMG-20260723-WA0000.jpg.jpeg" alt="..." />
+              </div>
+              <figcaption>caption goes here</figcaption>
+            </figure>
+
+            <figure class="polaroid tilt-b">
+              <div class="polaroid-frame">
+                <img src="/images/IMG-20260723-WA0002.jpg.jpeg" alt="..." />
+              </div>
+              <figcaption>caption goes here</figcaption>
+            </figure>
+
+            <figure class="polaroid tilt-c">
+              <div class="polaroid-frame">
+                <img src="/images/IMG-20260723-WA0003.jpg.jpeg" alt="..." />
+              </div>
+              <figcaption>caption goes here</figcaption>
+            </figure>
+
+            <figure class="polaroid tilt-d">
+              <div class="polaroid-frame">
+                <img src="/images/IMG-20260723-WA0004.jpg.jpeg" alt="..." />
+              </div>
+              <figcaption>caption goes here</figcaption>
+            </figure>
+
+            <figure class="polaroid tilt-e">
+              <div class="polaroid-frame">
+                <img src="/images/IMG-20260723-WA0005.jpg.jpeg" alt="..." />
+              </div>
+              <figcaption>caption goes here</figcaption>
+            </figure>
+          </div>
 
           <button class="primary-button" data-next="research">Next</button>
         </div>
@@ -164,7 +216,7 @@
       </article>
     </div>
 
-    <audio data-birthday-audio src="birthday-tune.mp3" preload="auto"></audio>
+    <audio data-birthday-audio src="/assets/nastelbom-happy-birthday-471481.mp3" preload="auto"></audio>
 
     <script src="script.js"></script>
   </body>

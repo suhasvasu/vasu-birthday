@@ -1,5 +1,5 @@
 const birthDate = new Date(2003, 6, 25, 0, 0, 0);
-const screenOrder = ["intro", "math", "message", "research", "gift"];
+const screenOrder = ["intro", "math", "message", "memories", "research", "gift"];
 const experience = document.querySelector("[data-experience]");
 const screens = [...document.querySelectorAll("[data-screen]")];
 const giftBox = document.querySelector("[data-gift-box]");
@@ -314,30 +314,15 @@ function playTone(frequency, startTime, duration, gainValue) {
   oscillator.stop(startTime + duration + 0.05);
 }
 
-function scheduleMusic() {
-  if (!musicPlaying) return;
-
-  const now = audioContext.currentTime;
-  const notes = [392, 493.88, 587.33, 739.99, 659.25, 493.88];
-
-  notes.forEach((note, index) => {
-    playTone(note, now + index * 0.42, 1.05, 0.045);
-    playTone(note / 2, now + index * 0.42, 1.3, 0.025);
-  });
-
-  musicTimer = window.setTimeout(scheduleMusic, 2600);
-}
-
 function startMusic() {
   if (musicPlaying) return;
+  musicPlaying = true;
 
-  if (birthdayAudio) {
+  if (birthdayAudio && birthdayAudio.getAttribute("src")) {
     birthdayAudio.currentTime = 0;
     birthdayAudio.volume = 0.7;
-    birthdayAudio.play().then(() => {
-      musicPlaying = true;
-      musicStopTimer = window.setTimeout(stopMusic, 14000);
-    }).catch(() => {
+    birthdayAudio.play().catch(() => {
+      musicPlaying = false;
       startGeneratedTune();
     });
     return;
@@ -347,10 +332,9 @@ function startMusic() {
 }
 
 function startGeneratedTune() {
-  if (musicPlaying) return;
-
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   if (!AudioContext) {
+    musicPlaying = false;
     return;
   }
 
@@ -362,14 +346,21 @@ function startGeneratedTune() {
     masterGainConnected = true;
   }
   audioContext.resume();
-  musicPlaying = true;
-  scheduleMusic();
-  musicStopTimer = window.setTimeout(stopMusic, 14000);
+
+  const notes = [392, 493.88, 587.33, 739.99, 659.25, 493.88];
+  const now = audioContext.currentTime;
+
+  notes.forEach((note, index) => {
+    playTone(note, now + index * 0.42, 1.05, 0.045);
+    playTone(note / 2, now + index * 0.42, 1.3, 0.025);
+  });
+
+  const totalDuration = notes.length * 0.42 + 1.3;
+  musicStopTimer = window.setTimeout(stopMusic, totalDuration * 1000);
 }
 
 function stopMusic() {
   musicPlaying = false;
-  window.clearTimeout(musicTimer);
   window.clearTimeout(musicStopTimer);
 
   if (birthdayAudio) {
@@ -380,6 +371,12 @@ function stopMusic() {
   if (masterGain) {
     masterGain.gain.setTargetAtTime(0.0001, audioContext.currentTime, 0.08);
   }
+}
+
+if (birthdayAudio) {
+  birthdayAudio.addEventListener("ended", () => {
+    musicPlaying = false;
+  });
 }
 
 giftBox.addEventListener("click", () => {
