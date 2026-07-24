@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Vanya</title>
+    <meta name="description" content="A birthday surprise made for Vanya." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas class="starfield" data-starfield></canvas>
+    <canvas class="confetti" data-confetti></canvas>
+
+    <main class="experience" data-experience>
+      <section class="screen is-active" data-screen="intro">
+        <div class="screen-inner intro-grid">
+          <div class="copy-block">
+            <p class="eyebrow">For You</p>
+            <h1>I have a little surprise for you.</h1>
+            <p class="lead">
+
+            </p>
+            <button class="primary-button" data-next="math">Start the journey</button>
+          </div>
+
+          <button class="sealed-note" data-next="math" aria-label="Start the birthday journey">
+            <span>25.07.2003</span>
+            <strong>tap to begin</strong>
+          </button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="math">
+        <div class="screen-inner">
+          <div class="section-heading">
+            <p class="eyebrow">The birthday math</p>
+            <h2>Since You arrived, the numbers have been busy.</h2>
+          </div>
+
+          <div class="counter-grid">
+            <article>
+              <strong data-years>--</strong>
+              <span>years of you</span>
+            </article>
+            <article>
+              <strong data-days>--</strong>
+              <span>days brighter</span>
+            </article>
+            <article>
+              <strong data-hours>--</strong>
+              <span>hours of magic</span>
+            </article>
+            <article>
+              <strong data-minutes>--</strong>
+              <span>minutes, approximately adorable</span>
+            </article>
+          </div>
+
+          <div class="countdown-card">
+            <span>Next birthday countdown</span>
+            <div class="countdown-grid" aria-label="Live birthday countdown">
+              <strong><b data-count-days>--</b><small>days</small></strong>
+              <strong><b data-count-hours>--</b><small>hours</small></strong>
+              <strong><b data-count-minutes>--</b><small>mins</small></strong>
+              <strong><b data-count-seconds>--</b><small>secs</small></strong>
+            </div>
+          </div>
+
+          <button class="primary-button" data-next="message">Next</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="message">
+        <div class="screen-inner message-layout">
+          <article class="glass-card message-card">
+            <p class="eyebrow">An important message</p>
+            <h2>Some people make ordinary days feel carefully decorated.</h2>
+            <p>
+              You do that. In small ways, quiet ways, and in ways that
+              stay with me long after the moment passes.
+            </p>
+          </article>
+
+          <article class="glass-card soft-card">
+            <p>
+              I hope you always remember this: you are not hard to love. You
+              are the kind of person someone feels lucky to know, lucky to
+              protect, and lucky to celebrate.
+            </p>
+          </article>
+
+          <button class="primary-button" data-next="research">Next</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="research">
+        <div class="screen-inner">
+          <div class="section-heading">
+            <p class="eyebrow">Completely serious research</p>
+            <h2>Ridiculous math, peer-reviewed by my heart.</h2>
+          </div>
+
+          <div class="math-board">
+            <p><span>Your smile</span> = normal day x 1000</p>
+            <p><span>Your laugh</span> &gt; every playlist ever made</p>
+            <p><span>25.07.2003</span> = the universe showing off</p>
+            <p><span>Probability of you being special</span> = 100%</p>
+            <p><span>My favorite constant</span> = you</p>
+          </div>
+
+          <button class="primary-button" data-next="gift">Next</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="gift">
+        <div class="screen-inner final-layout">
+          <div class="section-heading center">
+            <p class="eyebrow">The final part</p>
+            <h2>There is something inside this box.</h2>
+            <p>
+              Open it when you are ready. I saved the actual wish for the end.
+            </p>
+          </div>
+
+          <div class="final-stage">
+            <div class="cake" aria-label="Elegant birthday cake with candles">
+              <div class="candles">
+                <span class="candle"><i></i></span>
+                <span class="candle"><i></i></span>
+                <span class="candle"><i></i></span>
+              </div>
+              <div class="cake-top"></div>
+              <div class="cake-body"><span></span><span></span><span></span></div>
+              <div class="cake-plate"></div>
+            </div>
+
+            <button class="gift-box" data-gift-box aria-label="Open the gift box">
+              <span class="gift-lid"></span>
+              <span class="gift-ribbon"></span>
+              <span class="gift-body"></span>
+              <span class="gift-label">Open</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="wish-overlay" data-wish-overlay aria-hidden="true">
+      <article class="wish-modal" data-wish-modal>
+        <button class="close-wish" data-close-wish aria-label="Close birthday wish">x</button>
+        <p class="wish-kicker">Happy Birthday, Vanu</p>
+        <h2>May this year love you as beautifully as you deserve.</h2>
+        <p>
+          I hope your heart feels light today. I hope you smile without
+          thinking, laugh without holding back, and feel loved in all the quiet
+          places where words usually fall short.
+        </p>
+        <p>
+          You are rare in the softest way. The kind of person who makes life
+          warmer just by being in it. So today, I hope the world is extra
+          gentle with you, extra kind to you, and full of tiny moments that make
+          you feel deeply, unmistakably special.
+        </p>
+      </article>
+    </div>
+
+    <audio data-birthday-audio src="birthday-tune.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
