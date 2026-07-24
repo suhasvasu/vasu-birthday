@@ -139,7 +139,7 @@ p {
 
 h1 {
   margin-bottom: 20px;
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(2.6rem, 8vw, 5.6rem);
   font-weight: 600;
   line-height: 0.98;
@@ -148,7 +148,7 @@ h1 {
 
 h2 {
   margin-bottom: 18px;
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(2rem, 6vw, 4.2rem);
   font-weight: 600;
   line-height: 1.04;
