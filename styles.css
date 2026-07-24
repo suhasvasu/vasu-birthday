@@ -289,11 +289,13 @@ p {
 .counter-grid article {
   display: flex;
   min-width: 0;
-  min-height: 166px;
+  min-height: 140px; /* Reduced to allow flexibility */
+  height: 100%;
   flex-direction: column;
   justify-content: space-between;
+  gap: 12px; /* Adds space between number and text */
   padding: 24px;
-  overflow: hidden;
+  /* Removed overflow: hidden so text isn't cut off */
 }
 
 .counter-grid strong {
@@ -302,19 +304,20 @@ p {
   color: var(--wine);
   font-size: clamp(2.05rem, 4.5vw, 4.1rem);
   font-weight: 800;
-  line-height: 0.96;
+  line-height: 1;
   letter-spacing: -0.055em;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word; /* Swapped for cleaner, natural word wrapping */
   font-variant-numeric: tabular-nums;
 }
 
 .counter-grid span {
+  display: block;
   color: var(--muted);
   font-size: 0.82rem;
   font-weight: 800;
+  line-height: 1.4; /* Added breathing room for multi-line text */
   text-transform: uppercase;
 }
-
 .countdown-card {
   display: grid;
   gap: 16px;
@@ -366,7 +369,8 @@ p {
 }
 
 .glass-card {
-  padding: clamp(28px, 5vw, 54px);
+  /* Adjusted lower bound of clamp from 28px to 20px */
+  padding: clamp(20px, 5vw, 54px); 
 }
 
 .soft-card {
@@ -480,12 +484,12 @@ p {
 .math-board p {
   display: flex;
   justify-content: space-between;
-  gap: 24px;
+  gap: 12px; /* Reduced from 24px */
   margin: 0;
   border-bottom: 1px solid var(--line);
   padding: 14px 0;
   color: var(--ink);
-  font-size: clamp(1.45rem, 3vw, 2.4rem);
+  font-size: clamp(1.2rem, 3vw, 2.4rem); /* Reduced minimum font size */
   font-weight: 750;
   line-height: 1.12;
   letter-spacing: -0.03em;
@@ -833,45 +837,62 @@ p {
 
 @media (max-width: 540px) {
   .screen {
-    padding: 16px;
+    padding: 12px;
   }
 
   .screen-inner {
     max-height: none;
   }
 
+  .collage {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .tilt-a, .tilt-b, .tilt-c, .tilt-d, .tilt-e {
+    transform: rotate(-1.5deg);
+  }
+
   .counter-grid {
     grid-template-columns: 1fr;
+    gap: 12px; /* Tighter gap on small screens */
   }
 
   h1 {
-    font-size: clamp(3.2rem, 16vw, 4.8rem);
+    font-size: clamp(2.8rem, 14vw, 4.8rem); /* Refined scaling */
   }
 
   h2 {
-    font-size: clamp(2.15rem, 11vw, 3.6rem);
+    font-size: clamp(1.8rem, 10vw, 3.6rem);
   }
 
   .counter-grid article {
-    min-height: 116px;
-    padding: 20px;
+    min-height: auto; /* Lets the content dictate height */
+    padding: 16px; /* Reduced padding leaves more room for text */
   }
 
   .counter-grid strong {
-    font-size: clamp(2rem, 14vw, 3.55rem);
+    font-size: clamp(2.2rem, 12vw, 3.55rem);
   }
 
   .countdown-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .cake,
-  .gift-box {
-    transform: scale(0.84);
-  }
-
   .final-stage {
     gap: 0;
+  }
+
+  /* Fix the cake and gift box overflowing the screen */
+  .cake,
+  .gift-box {
+    transform: scale(0.65); /* Scale down further to fit mobile screens */
+    transform-origin: center center;
+    margin: -35px 0; /* Pulls elements closer to compensate for visual scaling gap */
+  }
+
+  .wish-modal {
+    padding: 24px 20px;
   }
 }
 
